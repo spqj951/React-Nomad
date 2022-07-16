@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.18.8/babel.min.js"></script>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script type="text/babel">
+    const root = document.getElementById("root");
+    /*const span = React.createElement(
+      "h3",
+      {
+        onMouseEnter: () => console.log("mouser enter"),
+        id: "good-span",
+        style: { color: "red" },
+      },
+      "Hello, I am a span"
+    ); //괄호 안에는 html 요소 이름 그대로
+    const btn = React.createElement(
+      "button",
+      {
+        onClick: () => console.log("i am a click"),
+      },
+      "Click me"
+    );*/
+    /*function Span() {
+      return (
+        <h3 id="good-span" onMouseEnter={() => console.log("mouse")}>
+          "Hello, I am a span
+        </h3>
+      );
+    }
+
+    const Btn = () => (
+      <button
+        style={{ backgroundColor: "tomato" }}
+        onClick={() => console.log("i am clicked")}
+      >
+        Click Me
+      </button>
+    );*/
+    //const div = React.createElement("div", null, [span, btn]);
+    let counter = 0;
+    function render() {
+      ReactDOM.render(<Div />, root);
+    }
+    function CountUp() {
+      counter = counter + 1;
+      render(); //이 부분으로 재렌더링
+    }
+    const Div = () => (
+      <div>
+        <h3>Total Clicks : {counter}</h3>
+        <button onClick={CountUp}>Click me</button>
+      </div>
+      //맨 앞글자는 대문자 일 것 , 아니면 html태그로 인식, component는 항상 대문자로 만들것
+    );
+    render(); //사용자에게 보여주겠다.(첫번째것을 두번째것 안에 넣어서)
+    //렌더링을 한 번만 해주게 됨. 새로운 값을 보여주려면 리렌더링을 해야함
+  </script>
+</html>
