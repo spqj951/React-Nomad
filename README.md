@@ -135,3 +135,19 @@ React는
   - npx create-react-app으로 설치
   - npm start로 서버 시작
   - gloabl css를 원하지 않을 경우 원하는 파일명에 .module.css를 붙여 만들고 이를 styles로 import하여 사용하는데 이는 객체 형태이기에 객체처럼 사용할 수 있으며 클래스 명 생성시 랜덤으로 제공해준다.
+
+- useEffect
+
+  - 특정코드가 component를 처음 렌더링되었을 때만 실행되도록 하는 기능
+
+  - state하나의 값이 변화 되었을 때 그 state가 포함된 컴포넌트가 모두 재렌더링되는 것은 비효율적이며, 이때 원하지 않는 state도 재렌더링 될 수가 있기 때문에 하나만을 집어 원할때만 재렌더링 해주는 기술이 필요하다. 이것이 useEffect
+
+    ```jsx
+    useEffect(function(){
+    console.log("i run only keyword is changed");
+    }, [keyword]);
+    ```
+
+  - 첫 번째 인자에 원하는 함수를 넣고, 두 번째 인자에는 지켜볼 값을 넣는다.
+
+  - useEffect에서 사용되는 함수가 다른 함수를 리턴함으로써 cleanUp function을 발생시킬 수 있는데 이는 컴포넌트가 파괴되었을 때 로그를 남길 수 있다는 장점이 있다.
