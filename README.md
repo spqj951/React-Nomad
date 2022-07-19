@@ -10,7 +10,7 @@
 
 [20220718 Map()](#20220718 Map())
 
-
+[20220719](#20220719)
 
 
 
@@ -171,3 +171,47 @@ React는
 - JavaScript의 map함수
   - 하나의 필터라고 생각하면 된다.
   - 인자로 하나의 함수를 넣으며 인자로 쓰인 함수의 첫 번째 인자는 배열의 값들을, 두번째 인자는 값들의 인덱스를 의미한다. 이후 값으로 혹은 필터로 쓰일 내용을 적어준다.
+
+# 20220719 Router, Publishing
+
+## React Router의 활용
+
+- 설치 : npm i react-router-dom
+- 사용방법
+
+```jsx
+import {BrowseRouter as Router, Routes, Router} from "react-router-dom"
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path={`${process.env.PUBLIC_URL}/`} element={<Home />} />
+        <Route path="/detail/:id" element={<Detail />} />
+//동적 url을 지원하여 url에 변수를 넣을 수 있으며 앞에 :을 붙이는 것으로 실행된다.
+//이는 변수를 사용할 곳에서 useParams함수를 import하여 사용이 가능하다.
+      </Routes>
+    </Router>
+  );
+}
+```
+
+- react에서는 새로고침의 방지를 위해 <a>태그를 대신하여 <Link>태그를 사용한다.
+
+```jsx
+import {Link} from "react-router-dom"
+```
+
+## GitHub Page Publishing
+
+- 실행
+
+```jsx
+npm i gh-pages
+```
+
+- package.json에 “hompage” :”https://spqj951.github..io/레포지토리주소”
+- script에 “deploy” : “gh-pages -d build” → build 파일을 깃허브 페이지에 올릴 수 있도록 해준다.
+- script에 “predeploy” : “npm run build” → 실행창에서 npm run build를 하는 수고를 덜어주고 npm run deploy시 자동으로 predeploy가 실행되어 build폴더가 생성된다.
+
+
+
